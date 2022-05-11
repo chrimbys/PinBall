@@ -12,35 +12,9 @@ public class ScoreCounter : MonoBehaviour
     //　加算される数  
     private int Score = 0;
 
-    //　タグによって変わる数
-    private int score;
-
-    
 
     void Start()
     {
-
-        //　ダグによって加算されるスコアを変える
-        if (tag == "SmallStarTag")
-        {
-            score = 2;
-        }
-        else if (tag == "LargeStarTag")
-        {
-            score = 5;
-        }
-        else if (tag == "SmallCloudTag")
-        {
-            score = 1;
-        }
-        else if (tag == "LargeCloudTag")
-        {
-            score = 3;
-        }
-
-
-
-       
 
         //　シーン中のScoreTextオブジェクトを取得
         this.ScoreText = GameObject.Find("ScoreText");
@@ -49,8 +23,6 @@ public class ScoreCounter : MonoBehaviour
 
     void Update()
     {
-        //　スコア計算
-        Score += score;
 
         // 表示
         this.ScoreText.GetComponent<Text>().text = Score + "点";
@@ -58,8 +30,27 @@ public class ScoreCounter : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
+        //　ダグによって加算されるスコアを変える
+        
+        if (other.gameObject.tag == "SmallStarTag")
+        {
+            Score += 2;
+        }
+        else if (other.gameObject.tag == "LargeStarTag")
+        {
+            Score += 5;
+        }
+        else if (other.gameObject.tag == "SmallCloudTag")
+        {
+            Score += 1;
+        }
+        else if (other.gameObject.tag == "LargeCloudTag")
+        {
+            Score += 3;
+        }
 
         
-    }
 
     }
+
+}
