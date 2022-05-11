@@ -15,8 +15,7 @@ public class ScoreCounter : MonoBehaviour
     //　タグによって変わる数
     private int score;
 
-    // Materialを入れる
-    Material myMaterial;
+    
 
     void Start()
     {
@@ -41,8 +40,7 @@ public class ScoreCounter : MonoBehaviour
 
 
 
-        //オブジェクトにアタッチしているMaterialを取得
-        this.myMaterial = GetComponent<Renderer>().material;
+       
 
         //　シーン中のScoreTextオブジェクトを取得
         this.ScoreText = GameObject.Find("ScoreText");
